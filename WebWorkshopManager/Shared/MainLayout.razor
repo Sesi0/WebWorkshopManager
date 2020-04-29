@@ -1,0 +1,45 @@
+﻿@inherits MainLayoutBase
+
+<MatDrawerContainer Style="width: 100vw; height: 100vh;" Class="@bbDrawerClass">
+    <MatDrawer @bind-Opened="@navMenuOpened">
+        <header class="drawer-header">
+            <div class="drawer-logo">
+                <MatIcon>build</MatIcon>
+                <a class="miniHover" href="/">WebWorkshopManager</a>
+            </div>
+        </header>
+        <NavMenu />
+    </MatDrawer>
+    <MatDrawerContent>
+        <MatAppBarContainer>
+            <MatAppBar Fixed="true">
+                <MatAppBarRow>
+                    <MatAppBarSection>
+                        <MatAppBarTitle>
+                        </MatAppBarTitle>
+                        <div class="hidden-mdc-down">
+
+                            <MatTooltip Tooltip="Покажи/Скрии Навигацията">
+                                <MatIconButton Class="navToggle" Icon="menu" ToggleIcon="menu" OnClick="@((e) => NavToggle())" RefBack="@context"></MatIconButton>
+                            </MatTooltip>
+
+                            <MatTooltip Tooltip="Минимизирай Навигацията">
+                                <MatIconButton Class="navToggle" Icon="format_indent_decrease" ToggleIcon="format_indent_increase" OnClick="@((e) => NavMinify())" RefBack="@context"></MatIconButton>
+                            </MatTooltip>
+                        </div>
+                    </MatAppBarSection>
+                </MatAppBarRow>
+            </MatAppBar>
+            <MatAppBarContent>
+                <section class="container-fluid">
+                    @Body
+                </section>
+                <footer class="page-footer">
+                    <div class="flex-1">
+                        Борислав Николов, СИТ, 1Б, ФКН: 17621620 © 2020
+                    </div>
+                </footer>
+            </MatAppBarContent>
+        </MatAppBarContainer>
+    </MatDrawerContent>
+</MatDrawerContainer>

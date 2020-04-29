@@ -1,0 +1,9 @@
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\bin\Debug\netstandard2.0\BobbysUtils.deps.json
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\bin\Debug\netstandard2.0\BobbysUtils.dll
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\bin\Debug\netstandard2.0\BobbysUtils.pdb
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.csprojAssemblyReference.cache
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.csproj.CoreCompileInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.AssemblyInfoInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.AssemblyInfo.cs
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.dll
+D:\Student\Kursovi\WebWorkshopManager\BobbysUtils\obj\Debug\netstandard2.0\BobbysUtils.pdb

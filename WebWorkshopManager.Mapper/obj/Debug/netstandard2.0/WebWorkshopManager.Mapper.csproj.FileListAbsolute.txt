@@ -1,0 +1,16 @@
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Mapper.deps.json
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Mapper.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Mapper.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\BobbysUtils.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Entities.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Shared.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Shared.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\WebWorkshopManager.Entities.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\bin\Debug\netstandard2.0\BobbysUtils.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.csprojAssemblyReference.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.csproj.CoreCompileInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.AssemblyInfoInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.AssemblyInfo.cs
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.csproj.CopyComplete
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Mapper\obj\Debug\netstandard2.0\WebWorkshopManager.Mapper.pdb

@@ -1,0 +1,89 @@
+﻿@page "/customers"
+
+@inherits CustomersOverviewBase
+
+<MatHeadline4>Клиенти</MatHeadline4>
+<MatDivider Style="margin: 10px auto;"></MatDivider>
+
+@if (this.TableItems == null)
+{
+    <MatProgressBar Indeterminate="true"></MatProgressBar>
+}
+else
+{
+
+    <MatTable Items="@TableItems"
+              Striped="true"
+              FilterByColumnName="Name"
+              SearchTermFieldLabel="Търсене по име"
+              SearchTermFieldPlaceHolder="Име"
+              DebounceMilliseconds="150"
+              PageLabel="Страница"
+              PageRecordCountLabel="Редове в страница"
+              class="mat-elevation-z5">
+        <MatTableHeader>
+            <th><MatButton OnClick="@AddNewRow" Icon="@MatIconNames.Add">Нов клиент</MatButton></th>
+            <th>Име</th>
+            <th>Телефон за контакт</th>
+            <th>Email</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>
+                <div style="width: 188px;">
+                    <MatIconButton Icon="@MatIconNames.Edit" OnClick="@(_ => OpenEditDialog(@context))"></MatIconButton>
+                    <MatIconButton Icon="@MatIconNames.Delete" OnClick="@(_ => DeleteRowAsync(@context))"></MatIconButton>
+                </div>
+            </td>
+            <td style="width: 230px;">@context.Name</td>
+            <td>@(context.ContactNumber)</td>
+            <td>@context.Email</td>
+        </MatTableRow>
+    </MatTable>
+
+    <MatDialog @bind-IsOpen="@IsEditRowDialogOpen">
+        <MatDialogTitle>@DialogTitle</MatDialogTitle>
+        <MatDialogContent>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <EditForm Model="SelectedRowItemForEdit" OnValidSubmit="SaveRowAsync">
+                    <FluentValidationValidator />
+
+                    <p>
+                        <MatTextField @bind-Value="@SelectedRowItemForEdit.Name" Label="Име" FullWidth="true" Required="true"></MatTextField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Name)" />
+                    </p>
+
+                    <p>
+                        <MatTextField @bind-Value="@SelectedRowItemForEdit.ContactNumber" Label="Телефон за контакт" FullWidth="true" Required="true"></MatTextField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.ContactNumber)" />
+                    </p>
+
+                    <p>
+                        <MatTextField @bind-Value="@SelectedRowItemForEdit.Email" Label="Email" Icon="mail_outline" Required="true" Type="mail"></MatTextField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Email)" />
+                    </p>
+                    
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <MatButton Icon="cancel" OnClick="@CancelRowEditAsync">Отказ</MatButton>
+                        <MatButton Icon="save" Type="submit">Запази</MatButton>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                </EditForm>
+            </div>
+        </MatDialogContent>
+
+    </MatDialog>
+
+    <MatDialog @bind-IsOpen="@IsDeleteRowDialogOpen" Style="z-index:100">
+        <MatDialogTitle><MatIcon Icon="warning"></MatIcon> Потвърдете изтриването</MatDialogTitle>
+        <MatDialogContent>
+            Сигурни ли сте, че искате да изтриете "@SelectedRowItemForEdit.Name" ?
+        </MatDialogContent>
+        <MatDialogActions>
+            <MatButton OnClick="@(e => { IsDeleteRowDialogOpen = false; })">Отказ</MatButton>
+            <MatButton OnClick="@ConfirmDeleteRowAsync">Изтрии</MatButton>
+        </MatDialogActions>
+    </MatDialog>
+}

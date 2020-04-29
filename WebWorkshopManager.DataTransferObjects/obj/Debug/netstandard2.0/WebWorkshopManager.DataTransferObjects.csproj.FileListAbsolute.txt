@@ -1,0 +1,4 @@
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.DataTransferObjects\bin\Debug\netstandard2.0\WebWorkshopManager.Core.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.DataTransferObjects\obj\Debug\netstandard2.0\WebWorkshopManager.DataTransferObjects.csprojAssemblyReference.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.DataTransferObjects\obj\Debug\netstandard2.0\WebWorkshopManager.DataTransferObjects.AssemblyInfoInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.DataTransferObjects\obj\Debug\netstandard2.0\WebWorkshopManager.DataTransferObjects.AssemblyInfo.cs

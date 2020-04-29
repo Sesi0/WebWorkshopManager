@@ -1,0 +1,9 @@
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\bin\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.deps.json
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\bin\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.csprojAssemblyReference.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.AssemblyInfoInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.AssemblyInfo.cs
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\bin\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.csproj.CoreCompileInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.BlazorComponents\obj\Debug\netstandard2.0\WebWorkshopManager.BlazorComponents.pdb

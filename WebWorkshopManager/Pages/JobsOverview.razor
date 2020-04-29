@@ -1,0 +1,127 @@
+﻿@page "/jobs"
+
+@using WebWorkshopManager.Shared.Models
+@using BobbysUtils
+
+@inherits JobsOverviewBase
+
+<MatHeadline4>Задачи</MatHeadline4>
+<MatDivider Style="margin: 10px auto;"></MatDivider>
+
+@if (this.TableItems == null)
+{
+    <MatProgressBar Indeterminate="true"></MatProgressBar>
+}
+else
+{
+
+<MatTable Items="@TableItems"
+          Striped="true"
+          PageLabel="Страница"
+          PageRecordCountLabel="Редове в страница"
+          class="mat-elevation-z5">
+    <MatTableHeader>
+        <th><MatButton OnClick="@AddNewRow" Icon="@MatIconNames.Add">Нова задача</MatButton></th>
+        <th>№</th>
+        <th>Статус</th>
+        <th>Автомобил</th>
+        <th>Рег. Номер</th>
+        <th>Клиент</th>
+        <th>Контакт</th>
+        <th>Служител</th>
+    </MatTableHeader>
+    <MatTableRow>
+        <td>
+            <div style="width: 188px;">
+                <MatIconButton Icon="@MatIconNames.Edit" OnClick="@(_ => OpenEditDialog(@context))"></MatIconButton>
+                <MatIconButton Icon="@MatIconNames.Delete" OnClick="@(_ => DeleteRowAsync(@context))"></MatIconButton>
+                <MatIconButton Icon="@MatIconNames.List" Link="@($"jobs/{@context.JobId}")"></MatIconButton>
+            </div>
+        </td>
+        <td>@context.JobNumber</td>
+        <td>@(EnumHelper.GetEnumFieldDisplayName(context.Status))</td>
+        <td>@context.Car.Brand @context.Car.Model</td>
+        <td>@context.Car.LicensePlate</td>
+        <td>@context.Customer.Name</td>
+        <td>@context.Customer.ContactNumber</td>
+        <td>@context.Worker.Name</td>
+    </MatTableRow>
+</MatTable>
+
+    <MatDialog @bind-IsOpen="@IsEditRowDialogOpen">
+        <MatDialogTitle>@DialogTitle</MatDialogTitle>
+        <MatDialogContent>
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <EditForm Model="SelectedRowItemForEdit" OnValidSubmit="SaveRowAsync">
+                    <FluentValidationValidator />
+
+                    <p>
+                        <MatSelectItem Items="@Cars" Label="Автомобил" @bind-Value="@SelectedRowItemForEdit.Car">
+                            <ItemTemplate Context="car">
+                                <div style="display: flex; flex-direction: column; height: 100%;">
+                                    <div>@car.Brand</div>
+                                    <div>@car.Model</div>
+                                </div>
+                            </ItemTemplate>
+                        </MatSelectItem>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Car)" />
+                    </p>
+
+                    <p>
+                        <MatSelectItem Items="@Customers" Label="Клиент" @bind-Value="@SelectedRowItemForEdit.Customer">
+                            <ItemTemplate Context="customer">
+                                <div style="display: flex; flex-direction: column; height: 100%;">
+                                    <div>@customer.Name</div>
+                                    <div>@customer.ContactNumber</div>
+                                </div>
+                            </ItemTemplate>
+                        </MatSelectItem>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Customer)" />
+                    </p>
+
+                    <p>
+                        <MatSelectItem Items="@Workers" Label="Служител" @bind-Value="@SelectedRowItemForEdit.Worker">
+                            <ItemTemplate Context="worker">
+                                <div style="display: flex; flex-direction: column; height: 100%;">
+                                    <div>@worker.Name</div>
+                                    <div>@worker.Role.Name</div>
+                                </div>
+                            </ItemTemplate>
+                        </MatSelectItem>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Worker)" />
+                    </p>
+
+                    <p>
+                        <MatSelectItem Items="@Statuses" Label="Автомобил" @bind-Value="@SelectedRowItemForEdit.Status">
+                            <ItemTemplate Context="status">
+                                @(EnumHelper.GetEnumFieldDisplayName(status))
+                            </ItemTemplate>
+                        </MatSelectItem>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Status)" />
+                    </p>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <MatButton Icon="cancel" OnClick="@CancelRowEditAsync">Отказ</MatButton>
+                        <MatButton Icon="save" Type="submit">Запази</MatButton>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                </EditForm>
+            </div>
+        </MatDialogContent>
+
+    </MatDialog>
+
+    <MatDialog @bind-IsOpen="@IsDeleteRowDialogOpen" Style="z-index:100">
+        <MatDialogTitle><MatIcon Icon="warning"></MatIcon> Потвърдете изтриването</MatDialogTitle>
+        <MatDialogContent>
+            Сигурни ли сте, че искате да изтриете "@SelectedRowItemForEdit.JobNumber" ?
+        </MatDialogContent>
+        <MatDialogActions>
+            <MatButton OnClick="@(e => { IsDeleteRowDialogOpen = false; })">Отказ</MatButton>
+            <MatButton OnClick="@ConfirmDeleteRowAsync">Изтрии</MatButton>
+        </MatDialogActions>
+    </MatDialog>
+}

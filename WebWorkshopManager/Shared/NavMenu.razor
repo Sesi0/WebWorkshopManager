@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Components
+
+    <MatNavMenu Multi="true" Class="app-sidebar">
+        <MatNavItem Href="/">
+            <MatIcon>home</MatIcon> <span class="miniHover">Начало</span>
+        </MatNavItem>
+        <MatNavSubMenu @bind-Expanded="@usersNavSubMenuOpenState">
+            <MatNavSubMenuHeader>
+                <MatNavItem AllowSelection="false">
+                    <MatIcon>supervised_user_circle</MatIcon> <span class="miniHover">Потребители</span>
+                </MatNavItem>
+            </MatNavSubMenuHeader>
+            <MatNavSubMenuList>
+                <MatNavItem Href="/users">
+                    <MatIcon>person_pin</MatIcon> <span class="miniHover">Потребители</span>
+                </MatNavItem>
+
+                <MatNavItem Href="/roles">
+                    <MatIcon>vpn_key</MatIcon> <span class="miniHover">Роли</span>
+                </MatNavItem>
+            </MatNavSubMenuList>
+        </MatNavSubMenu>
+        <MatNavSubMenu @bind-Expanded="@storageNavSubMenuOpenState">
+            <MatNavSubMenuHeader>
+                <MatNavItem AllowSelection="false">
+                    <MatIcon>storage</MatIcon> <span class="miniHover">Номенклатури</span>
+                </MatNavItem>
+            </MatNavSubMenuHeader>
+            <MatNavSubMenuList>
+                <MatNavItem Href="/services">
+                    <MatIcon>build</MatIcon> <span class="miniHover">Услуги</span>
+                </MatNavItem>
+
+                <MatNavItem Href="/products">
+                    <MatIcon>drafts</MatIcon> <span class="miniHover">Продукти</span>
+                </MatNavItem>
+
+                <MatNavItem Href="/parts">
+                    <MatIcon>settings</MatIcon> <span class="miniHover">Автомобилни части</span>
+                </MatNavItem>
+
+                <MatNavItem Href="/labours">
+                    <MatIcon>transfer_within_a_station</MatIcon> <span class="miniHover">Труд</span>
+                </MatNavItem>
+            </MatNavSubMenuList>
+        </MatNavSubMenu>
+
+
+        <MatNavItem Href="/jobs">
+            <MatIcon>work</MatIcon> <span class="miniHover">Задачи</span>
+        </MatNavItem>
+
+        <MatNavItem Href="/customers">
+            <MatIcon>accessibility</MatIcon> <span class="miniHover">Клиенти</span>
+        </MatNavItem>
+
+        <MatNavItem Href="/cars">
+            <MatIcon>directions_car</MatIcon> <span class="miniHover">Автомобили</span>
+        </MatNavItem>
+
+    </MatNavMenu>
+
+
+@code
+{
+    bool usersNavSubMenuOpenState;
+    bool storageNavSubMenuOpenState;
+}

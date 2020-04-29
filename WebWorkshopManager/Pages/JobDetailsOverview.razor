@@ -1,0 +1,147 @@
+﻿@page "/jobs/{Id:int}"
+
+@using WebWorkshopManager.Shared.Models
+@using BobbysUtils
+
+@inherits JobDetailsOverviewBase
+
+
+@if (this.TableItems == null)
+{
+    <MatProgressBar Indeterminate="true"></MatProgressBar>
+}
+else
+{
+    <MatDialog @bind-IsOpen="@IsEditRowDialogOpen" Style="z-index:100">
+        <MatDialogTitle>@DialogTitle</MatDialogTitle>
+        <MatDialogContent Style="z-index:100">
+            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                <EditForm Model="SelectedRowItemForEdit" OnValidSubmit="SaveRowAsync">
+                    <FluentValidationValidator />
+
+                    <p>
+                        <MatSelectItem Items="@Products" Label="Продукт" @bind-Value="@SelectedRowItemForEdit.Product">
+                            <ItemTemplate Context="product">
+                                @product.Name
+                            </ItemTemplate>
+                        </MatSelectItem>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Product)" />
+                    </p>
+
+                    <p>
+                        <MatTextField Label="Описание" @bind-Value="@SelectedRowItemForEdit.Description" FullWidth="true" Required="false"></MatTextField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Description)" />
+                    </p>
+
+                    <p>
+                        <MatNumericUpDownField DecimalPlaces="2" Label="Количество" FullWidth="true" @bind-Value="@SelectedRowItemForEdit.Quantity" Required="true"></MatNumericUpDownField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.Quantity)" />
+                    </p>
+
+                    <p>
+                        <MatNumericUpDownField DecimalPlaces="2" Label="Цена на бройка" FullWidth="true" @bind-Value="@SelectedRowItemForEdit.UnitPrice" Required="true"></MatNumericUpDownField>
+                        <ValidationMessage For="@(() => SelectedRowItemForEdit.UnitPrice)" />
+                    </p>
+
+                    <MatSubtitle2>Общо: @(SelectedRowItemForEdit.Quantity * SelectedRowItemForEdit.UnitPrice)</MatSubtitle2>
+
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                        <MatButton Icon="cancel" Type="button" OnClick="@CancelRowEditAsync">Отказ</MatButton>
+                        <MatButton Icon="save" Type="submit">Запази</MatButton>
+                    </div>
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+                    </div>
+                </EditForm>
+            </div>
+        </MatDialogContent>
+
+    </MatDialog>
+
+    <MatDialog @bind-IsOpen="@IsDeleteRowDialogOpen" Style="z-index:100">
+        <MatDialogTitle><MatIcon Icon="warning"></MatIcon> Потвърдете изтриването</MatDialogTitle>
+        <MatDialogContent>
+            Сигурни ли сте, че искате да изтриете "@SelectedRowItemForEdit.Product.Name" ?
+        </MatDialogContent>
+        <MatDialogActions>
+            <MatButton OnClick="@(e => { IsDeleteRowDialogOpen = false; })">Отказ</MatButton>
+            <MatButton OnClick="@ConfirmDeleteRowAsync">Изтрии</MatButton>
+        </MatDialogActions>
+    </MatDialog>
+
+    <Grid>
+        <ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </ColumnDefinitions>
+        <RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </RowDefinitions>
+
+        <Content>
+            <GridElement Column="1" ColumnSpan="2" Row="1">
+                <MatHeadline4>Задача №@Job.JobNumber</MatHeadline4>
+                <MatDivider Style="margin: 10px auto;"></MatDivider>
+            </GridElement>
+
+            <GridElement Column="1" Row="2">
+                <MatSubtitle2>Статус: @(EnumHelper.GetEnumFieldDisplayName(@Job.Status))</MatSubtitle2>
+            </GridElement>
+
+            <GridElement Column="2" Row="2">
+                <MatSubtitle2>Клиент: @Job.Customer.Name</MatSubtitle2>
+            </GridElement>
+
+            <GridElement Column="1" Row="3">
+                <MatSubtitle2>Автомобил: @Job.Car.Brand @Job.Car.Model</MatSubtitle2>
+            </GridElement>
+
+            <GridElement Column="2" Row="3">
+                <MatSubtitle2>Служител: @Job.Worker.Name</MatSubtitle2>
+            </GridElement>
+
+            <GridElement Column="1" ColumnSpan="2" Row="4">
+                <MatTable Items="@TableItems"
+                          Striped="true"
+                          PageLabel="Страница"
+                          PageRecordCountLabel="Редове в страница"
+                          class="mat-elevation-z5">
+                    <MatTableHeader>
+                        <th><MatButton OnClick="@AddNewRow" Icon="@MatIconNames.Add">Нова задача</MatButton></th>
+                        <th>Продукт</th>
+                        <th>Описание</th>
+                        <th>Количество</th>
+                        <th>Цена на бройка</th>
+                        <th>Общо</th>
+                    </MatTableHeader>
+                    <MatTableRow>
+                        <td>
+                            <div style="width: 188px;">
+                                <MatIconButton Icon="@MatIconNames.Edit" OnClick="@(_ => OpenEditDialog(@context))"></MatIconButton>
+                                <MatIconButton Icon="@MatIconNames.Delete" OnClick="@(_ => DeleteRowAsync(@context))"></MatIconButton>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="width: 300px;">
+                                @context.Product.Name
+                            </div>
+                        </td>
+                        <td>
+                            <div style="min-width: 133px;">
+                                @context.Description
+                            </div>
+                        </td>
+                        <td>@context.Quantity</td>
+                        <td>@context.UnitPrice</td>
+                        <td>@(context.Quantity * context.UnitPrice)</td>
+                    </MatTableRow>
+                </MatTable>
+            </GridElement>
+        </Content>
+    </Grid>
+}

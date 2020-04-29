@@ -1,0 +1,14 @@
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\WebWorkshopManager.Entities.deps.json
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\WebWorkshopManager.Entities.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\WebWorkshopManager.Entities.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\BobbysUtils.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\WebWorkshopManager.Shared.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\BobbysUtils.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\bin\Debug\netstandard2.0\WebWorkshopManager.Shared.pdb
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.csprojAssemblyReference.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.csproj.CoreCompileInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.AssemblyInfoInputs.cache
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.AssemblyInfo.cs
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.csproj.CopyComplete
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.dll
+D:\Student\Kursovi\WebWorkshopManager\WebWorkshopManager.Entities\obj\Debug\netstandard2.0\WebWorkshopManager.Entities.pdb
