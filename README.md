@@ -1,5 +1,5 @@
 # WebWorkshopManager
-A university project about workshop management system (Domain-Driven-Design *more splitted).
+A university project about workshop management system (N-layered architecture).
 
 WebWorkshopManager is a ASP.NET Core website for managing automotive workshop.
 
